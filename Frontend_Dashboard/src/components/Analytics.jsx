@@ -3,7 +3,7 @@ import {
   Chart as ChartJS,
   BarElement,
   LineElement,
-  PointElement, // Add this
+  PointElement, 
   Tooltip,
   Legend,
   CategoryScale,
@@ -13,11 +13,11 @@ import {
 import { Bar, Line } from 'react-chartjs-2';
 import 'chartjs-adapter-date-fns';
 
-// Register required Chart.js components
+
 ChartJS.register(
   BarElement,
   LineElement,
-  PointElement, // Register PointElement
+  PointElement, 
   Tooltip,
   Legend,
   CategoryScale,
@@ -26,7 +26,7 @@ ChartJS.register(
 );
 
 function Analytics({ articlesByCategory }) {
-  // Prepare data for "Articles by Author" chart
+  
   const authorData = {};
   Object.values(articlesByCategory).flat().forEach((article) => {
     const author = article.author || 'Unknown';
@@ -47,14 +47,14 @@ function Analytics({ articlesByCategory }) {
     ],
   };
 
-  // Prepare data for "Articles Over Time" chart
+  
   const timeData = {};
   Object.values(articlesByCategory).flat().forEach((article) => {
-    const date = new Date(article.publishedAt).toISOString().split('T')[0]; // Format as YYYY-MM-DD
+    const date = new Date(article.publishedAt).toISOString().split('T')[0]; 
     timeData[date] = (timeData[date] || 0) + 1;
   });
 
-  const sortedDates = Object.keys(timeData).sort(); // Sort dates
+  const sortedDates = Object.keys(timeData).sort(); 
   const articleCountsByDate = sortedDates.map((date) => timeData[date]);
 
   const timeChartData = {
@@ -99,8 +99,8 @@ function Analytics({ articlesByCategory }) {
             maintainAspectRatio: true,
             scales: {
               x: {
-                type: 'time', // Time-based scale
-                time: { unit: 'day' }, // Adjust as needed (e.g., 'week', 'month')
+                type: 'time', 
+                time: { unit: 'day' }, 
               },
             },
           }}

@@ -13,7 +13,7 @@ function Login() {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate('/dashboard'); // Redirect to Dashboard
+      navigate('/dashboard'); 
     } catch (err) {
       setError('Invalid email or password. Please try again.');
     }
@@ -23,7 +23,7 @@ function Login() {
     const provider = new GoogleAuthProvider();
     try {
       await signInWithPopup(auth, provider);
-      navigate('/dashboard'); // Redirect to Dashboard
+      navigate('/dashboard'); 
     } catch (err) {
       setError('Google login failed. Please try again.');
     }

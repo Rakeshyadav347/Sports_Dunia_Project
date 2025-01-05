@@ -2,7 +2,7 @@ import React from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js';
 import { Pie, Bar } from 'react-chartjs-2';
 
-// Register Chart.js components
+
 ChartJS.register(ArcElement, Tooltip, Legend, BarElement, CategoryScale, LinearScale);
 
 function Overview({ articlesByCategory }) {
@@ -42,7 +42,7 @@ function Overview({ articlesByCategory }) {
             options={{
               responsive: true,
               maintainAspectRatio: true,
-              aspectRatio: 2, // Adjust graph size
+              aspectRatio: 2, 
             }}
           />
         </div>
@@ -53,7 +53,7 @@ function Overview({ articlesByCategory }) {
             options={{
               responsive: true,
               maintainAspectRatio: true,
-              aspectRatio: 2, // Adjust graph size
+              aspectRatio: 2, 
             }}
           />
         </div>

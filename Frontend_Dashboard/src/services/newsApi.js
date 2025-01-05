@@ -7,11 +7,11 @@ export const fetchNews = async (category) => {
   try {
     const response = await axios.get(API_URL, {
       params: {
-        q: category, // Search articles by category
+        q: category, 
         apiKey: API_KEY,
       },
     });
-    return response.data.articles; // Returns the list of articles
+    return response.data.articles; 
   } catch (error) {
     console.error('Error fetching news:', error);
     return [];

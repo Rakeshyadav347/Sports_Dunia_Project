@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { exportToPDF, exportToCSV } from '../utils/export';
 
 function PayoutCalculator({ articles }) {
-  const [payoutRate, setPayoutRate] = useState(5); // Default payout rate per article
+  const [payoutRate, setPayoutRate] = useState(5); 
   const [totalPayout, setTotalPayout] = useState(0);
 
   useEffect(() => {

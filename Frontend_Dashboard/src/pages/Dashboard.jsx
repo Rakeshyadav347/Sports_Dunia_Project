@@ -4,11 +4,11 @@ import Filters from '../components/Filters';
 import PayoutCalculator from '../components/PayoutCalculator';
 import Overview from '../components/Overview';
 import Analytics from '../components/Analytics';
-import { auth } from '../firebase'; // Ensure Firebase is correctly imported
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
+import { auth } from '../firebase'; 
+import { useNavigate } from 'react-router-dom'; 
 
 function Dashboard() {
-  const predefinedCategories = ['sports', 'politics', 'technology', 'health', 'entertainment']; // Default categories
+  const predefinedCategories = ['sports', 'politics', 'technology', 'health', 'entertainment']; 
   const [selectedCategories, setSelectedCategories] = useState(predefinedCategories);
   const [articlesByCategory, setArticlesByCategory] = useState({});
   const [filteredArticlesByCategory, setFilteredArticlesByCategory] = useState({});
@@ -19,12 +19,12 @@ function Dashboard() {
     endDate: '',
   });
 
-  const navigate = useNavigate(); // Initialize navigation
+  const navigate = useNavigate(); 
 
   const handleLogout = async () => {
     try {
-      await auth.signOut(); // Log out the user
-      navigate('/'); // Redirect to login page
+      await auth.signOut(); 
+      navigate('/'); 
     } catch (error) {
       console.error('Error during logout:', error);
       alert('Failed to log out. Please try again.');
@@ -32,7 +32,7 @@ function Dashboard() {
   };
 
   useEffect(() => {
-    // Fetch articles for the selected categories
+    
     const fetchArticles = async () => {
       const results = {};
       for (const category of selectedCategories) {
@@ -40,10 +40,10 @@ function Dashboard() {
         results[category] = articles;
       }
       setArticlesByCategory(results);
-      setFilteredArticlesByCategory(results); // Initially show all articles
+      setFilteredArticlesByCategory(results); 
     };
     fetchArticles();
-  }, [selectedCategories]); // Refetch articles when selected categories change
+  }, [selectedCategories]); 
 
   useEffect(() => {
     const applyFilters = () => {
@@ -100,7 +100,7 @@ function Dashboard() {
     <div
       className="container my-4"
       style={{
-        backgroundColor: '#f9f9f9', // Light gray background for better aesthetics
+        backgroundColor: '#f9f9f9', 
         padding: '20px',
         borderRadius: '8px',
       }}
